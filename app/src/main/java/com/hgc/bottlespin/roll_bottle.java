@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -17,7 +18,7 @@ public class roll_bottle extends AppCompatActivity {
     Random rand;
     int angle,changed_angle=0;
     int dialerHeight;
-    int player,total_player=4;
+    int player,total_player=10;
     private GestureDetector gestureListener;
     int dialerWidth;
     boolean isRotating=false;
@@ -43,33 +44,67 @@ public class roll_bottle extends AppCompatActivity {
         bottle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                player=rand.nextInt(total_player);
-                angle=player*360/total_player;
+                player=rand.nextInt(total_player*100)/100;
+                angle=(player*(360/total_player))+7200;
 //                angle=rand.nextInt(7200)+720;
                 RotateAnimation ranim=new RotateAnimation(changed_angle,angle,RotateAnimation.RELATIVE_TO_SELF,0.5f
                 ,RotateAnimation.RELATIVE_TO_SELF,0.5f);
-                changed_angle=angle;
+                changed_angle=angle%360;
                 ranim.setFillAfter(true);
                 ranim.setDuration(3600);
                 ranim.setInterpolator(new AccelerateDecelerateInterpolator());
                 bottle.startAnimation(ranim);
-                switch (player)
-                {
-                    case 1:
-                        Toast.makeText(roll_bottle.this, "Player 1", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 2:
-                        Toast.makeText(roll_bottle.this, "Player 2", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 3:
-                        Toast.makeText(roll_bottle.this, "Player 3", Toast.LENGTH_SHORT).show();
-                        break;
-                    case 4:
-                        Toast.makeText(roll_bottle.this, "Player 4", Toast.LENGTH_SHORT).show();
-                        break;
-                    default:
-                        break;
-                }
+                ranim.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                        switch (player)
+                        {
+                            case 0:
+                                Toast.makeText(roll_bottle.this, "Player 1", Toast.LENGTH_SHORT).show();
+                                break;
+                            case 1:
+                                Toast.makeText(roll_bottle.this, "Player 2", Toast.LENGTH_SHORT).show();
+                                break;
+                            case 2:
+                                Toast.makeText(roll_bottle.this, "Player 3", Toast.LENGTH_SHORT).show();
+                                break;
+                            case 3:
+                                Toast.makeText(roll_bottle.this, "Player 4", Toast.LENGTH_SHORT).show();
+                                break;
+                            case 4:
+                                Toast.makeText(roll_bottle.this, "Player 5", Toast.LENGTH_SHORT).show();
+                                break;
+                            case 5:
+                                Toast.makeText(roll_bottle.this, "Player 6", Toast.LENGTH_SHORT).show();
+                                break;
+                            case 6:
+                                Toast.makeText(roll_bottle.this, "Player 7", Toast.LENGTH_SHORT).show();
+                                break;
+                            case 7:
+                                Toast.makeText(roll_bottle.this, "Player 8", Toast.LENGTH_SHORT).show();
+                                break;
+                            case 8:
+                                Toast.makeText(roll_bottle.this, "Player 9", Toast.LENGTH_SHORT).show();
+                                break;
+                            case 9:
+                                Toast.makeText(roll_bottle.this, "Player 10", Toast.LENGTH_SHORT).show();
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+
+                    }
+                });
+
 //                if (changed_angle>=0 && changed_angle<90)
 //                {
 //                    Toast.makeText(roll_bottle.this, "Player 1", Toast.LENGTH_SHORT).show();
