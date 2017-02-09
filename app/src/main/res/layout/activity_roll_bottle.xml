@@ -1,0 +1,31 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@mipmap/spinbottleactivity_bg1"
+    tools:context="com.hgc.bottlespin.roll_bottle">
+
+    <!-- The primary full-screen view. This can be replaced with whatever view
+         is needed to present your content, e.g. VideoView, SurfaceView,
+         TextureView, etc. -->
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+        <ImageView
+            android:layout_height="300dp"
+            android:layout_width="300dp"
+            android:id="@+id/id_table"
+            android:src="@mipmap/table"/>
+    <ImageView
+        android:layout_height="250dp"
+        android:layout_width="250dp"
+        android:id="@+id/id_bottle"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="15dp"
+        android:src="@mipmap/bottle_1"/>
+    </RelativeLayout>
+
+</RelativeLayout>
