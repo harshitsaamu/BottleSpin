@@ -14,7 +14,6 @@ import java.util.Random;
 
 public class roll_bottle extends AppCompatActivity {
     ImageView bottle,table;
-    int ha;
     Random rand;
     int angle,changed_angle=0;
     int player,total_player=10;
