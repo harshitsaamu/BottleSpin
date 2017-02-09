@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.GestureDetector;
 import android.view.View;
-import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.ImageView;
@@ -29,15 +28,15 @@ public class roll_bottle extends AppCompatActivity {
         bottle=(ImageView)findViewById(R.id.id_bottle);
         table=(ImageView)findViewById(R.id.id_table);
         rand=new Random();
-        bottle.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                if( dialerHeight==0 || dialerWidth==0){
-                    dialerHeight=bottle.getHeight();
-                    dialerWidth=bottle.getWidth();
-                }
-            }
-        });
+//        bottle.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+//            @Override
+//            public void onGlobalLayout() {
+//                if( dialerHeight==0 || dialerWidth==0){
+//                    dialerHeight=bottle.getHeight();
+//                    dialerWidth=bottle.getWidth();
+//                }
+//            }
+//        });
         if (!isRotating)
         bottle.setOnClickListener(new View.OnClickListener() {
             @Override
