@@ -15,37 +15,38 @@ import java.util.Random;
 
 
 public class roll_bottle extends AppCompatActivity {
-    ImageView bottle,table;
+    ImageView bottle, table;
     Random rand;
     Button button;
-    int flag=11;
-    int angle,changed_angle=0;
-    int player,total_player=10;
+    int flag = 11;
+    int angle, changed_angle = 0;
+    int player, total_player = 10;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roll_bottle);
-        button=(Button)findViewById(R.id.butt);
-        bottle=(ImageView)findViewById(R.id.id_bottle);
-        table=(ImageView)findViewById(R.id.id_table);
-        rand=new Random();
+        button = (Button) findViewById(R.id.butt);
+        bottle = (ImageView) findViewById(R.id.id_bottle);
+        table = (ImageView) findViewById(R.id.id_table);
+        rand = new Random();
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i=new Intent(roll_bottle.this,select_player.class);
+                Intent i = new Intent(roll_bottle.this, select_player.class);
                 startActivity(i);
             }
         });
         bottle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                player=rand.nextInt(total_player*100)/100;
-                flag=player;
-                angle=(player*(360/total_player))+7200;
+                rand_gen();
+                flag = player;
+                angle = (player * (360 / total_player)) + 7200;
 //                angle=rand.nextInt(7200)+720;
-                RotateAnimation ranim=new RotateAnimation(changed_angle,angle,RotateAnimation.RELATIVE_TO_SELF,0.5f
-                ,RotateAnimation.RELATIVE_TO_SELF,0.5f);
-                changed_angle=angle%360;
+                RotateAnimation ranim = new RotateAnimation(changed_angle, angle, RotateAnimation.RELATIVE_TO_SELF, 0.5f
+                        , RotateAnimation.RELATIVE_TO_SELF, 0.5f);
+                changed_angle = angle % 360;
                 ranim.setFillAfter(true);
                 ranim.setDuration(7200);
                 ranim.setInterpolator(new AccelerateDecelerateInterpolator());
@@ -58,8 +59,7 @@ public class roll_bottle extends AppCompatActivity {
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                        switch (player)
-                        {
+                        switch (player) {
                             case 0:
                                 Toast.makeText(roll_bottle.this, "Player 1", Toast.LENGTH_SHORT).show();
                                 break;
@@ -102,5 +102,12 @@ public class roll_bottle extends AppCompatActivity {
                 });
             }
         });
+    }
+
+    void rand_gen() {
+        if (flag == rand.nextInt(total_player * 100) / 100) {
+            rand_gen();
+        }
+        player = rand.nextInt(total_player * 100) / 100;
     }
 }
