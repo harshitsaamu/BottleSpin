@@ -2,4 +2,6 @@
     <string name="app_name">Bottle Spin</string>
     <string name="fun">FUN</string>
     <string name="adult">ADULT</string>
+    <string name="roboto_light">sans-serif-light</string>
+    <string name="number_picker_formatter">%02d</string>
 </resources>

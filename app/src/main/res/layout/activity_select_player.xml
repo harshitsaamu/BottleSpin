@@ -1,35 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/activity_select_player"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.hgc.bottlespin.select_player">
 
+    <TextView
+        android:id="@+id/players"
+        android:layout_width="match_parent"
+        android:textAlignment="center"
+        android:layout_height="60dp"
+        android:layout_marginTop="60dp"
+        android:text="NUMBER OF PLAYERS"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimary"
+        android:layout_alignParentTop="true" />
+
+
+    <com.shawnlin.numberpicker.NumberPicker
+        android:id="@+id/horizontal_number_picker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/players"
+        android:layout_marginTop="10dp"
+        app:np_width="250dp"
+        app:np_height="90dp"
+        app:np_dividerThickness="2dp"
+        app:np_dividerDistance="60dp"
+        app:np_max="8"
+        app:np_min="2"
+        app:np_orientation="horizontal"
+        app:np_wrapSelectorWheel="true"
+        app:np_textSize="40dp"
+        app:np_typeface="@string/roboto_light" />
+
     <FrameLayout xmlns:scrolling_image_view="http://schemas.android.com/apk/res-auto"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20.0dip"
-        android:layout_weight="80.0">
+        android:layout_marginTop="130dp"
+        android:layout_weight="80.0"
+        android:layout_below="@id/horizontal_number_picker">
 
         <com.q42.android.scrollingimageview.ScrollingImageView
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="300dp"
             android:layout_gravity="bottom"
             scrolling_image_view:speed="1dp"
-            scrolling_image_view:src="@drawable/scrolling_background" />
+            scrolling_image_view:src="@drawable/newback" />
 
         <com.q42.android.scrollingimageview.ScrollingImageView
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="300dp"
             android:layout_gravity="bottom"
             scrolling_image_view:speed="1.9dp"
-            scrolling_image_view:src="@drawable/scrolling_foreground" />
+            scrolling_image_view:src="@drawable/newfore" />
 
         <ImageView
+            android:id="@+id/vehicle"
             android:layout_width="100dp"
             android:layout_height="50dp"
             android:layout_gravity="bottom|center"
-            android:src="@drawable/van" />
+            android:src="@drawable/cycle" />
     </FrameLayout>
 </RelativeLayout>
