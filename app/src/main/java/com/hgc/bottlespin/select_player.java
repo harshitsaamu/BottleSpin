@@ -1,9 +1,12 @@
 package com.hgc.bottlespin;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.shawnlin.numberpicker.NumberPicker;
@@ -15,6 +18,7 @@ public class select_player extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_player);
         final ImageView vehicle=(ImageView)findViewById(R.id.vehicle);
+        Button done=(Button)findViewById(R.id.Button3);
 
         final NumberPicker numberPicker = (NumberPicker) findViewById(R.id.horizontal_number_picker);
 
@@ -48,10 +52,10 @@ public class select_player extends AppCompatActivity {
                         vehicle.setImageResource(R.drawable.cycle);
                         break;
                     case 3:
-                        vehicle.setImageResource(R.drawable.van);
+                        vehicle.setImageResource(R.drawable.scooter);
                         break;
                     case 4:
-                        vehicle.setImageResource(R.drawable.van);
+                        vehicle.setImageResource(R.drawable.auto);
                         break;
                     case 5:
                         vehicle.setImageResource(R.drawable.van);
@@ -68,6 +72,14 @@ public class select_player extends AppCompatActivity {
                 }
             }
 
+        });
+
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent donePlayerSelect=new Intent(select_player.this,roll_bottle.class);
+                startActivity(donePlayerSelect);
+            }
         });
     }
 }

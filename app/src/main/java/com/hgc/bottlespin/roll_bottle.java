@@ -1,6 +1,5 @@
 package com.hgc.bottlespin;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -26,17 +25,9 @@ public class roll_bottle extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roll_bottle);
-        button = (Button) findViewById(R.id.butt);
         bottle = (ImageView) findViewById(R.id.id_bottle);
         table = (ImageView) findViewById(R.id.id_table);
         rand = new Random();
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(roll_bottle.this, select_player.class);
-                startActivity(i);
-            }
-        });
         bottle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
