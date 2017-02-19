@@ -10,7 +10,7 @@
         android:id="@+id/adultButton"
         android:layout_width="320dp"
         android:layout_height="80dp"
-        android:src="@drawable/adult_button"
+
         android:layout_centerHorizontal="true"
         android:layout_marginTop="400dp"/>
     <ImageView
@@ -18,7 +18,7 @@
         android:layout_below="@+id/adultButton"
         android:layout_width="320dp"
         android:layout_height="80dp"
-        android:src="@drawable/fun_button"
+
         android:layout_centerHorizontal="true"
         android:layout_marginTop="15dp"/>
 

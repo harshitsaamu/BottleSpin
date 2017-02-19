@@ -12,7 +12,7 @@ import android.widget.ImageView;
 import com.shawnlin.numberpicker.NumberPicker;
 
 public class select_player extends AppCompatActivity {
-
+  int totalplayer=2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +46,7 @@ public class select_player extends AppCompatActivity {
             @Override
             public void onValueChange(NumberPicker picker, int
                     oldVal, int newVal) {
+                totalplayer=newVal;
                 switch(newVal)
                 {
                     case 2:
@@ -78,6 +79,7 @@ public class select_player extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent donePlayerSelect=new Intent(select_player.this,roll_bottle.class);
+                donePlayerSelect.putExtra("no_of_players",totalplayer);
                 startActivity(donePlayerSelect);
             }
         });

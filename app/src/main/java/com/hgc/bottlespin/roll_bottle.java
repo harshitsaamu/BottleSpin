@@ -1,5 +1,6 @@
 package com.hgc.bottlespin;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,14 +18,16 @@ public class roll_bottle extends AppCompatActivity {
     ImageView bottle, table;
     Random rand;
     Button button;
-    int flag = 11;
+    int flag;
     int angle, changed_angle = 0;
-    int player, total_player = 10;
+    int player, total_player;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_roll_bottle);
+        Bundle bundle=getIntent().getExtras();
+        total_player=bundle.getInt("no_of_players");
         bottle = (ImageView) findViewById(R.id.id_bottle);
         table = (ImageView) findViewById(R.id.id_table);
         rand = new Random();
@@ -33,13 +36,13 @@ public class roll_bottle extends AppCompatActivity {
             public void onClick(View v) {
                 rand_gen();
                 flag = player;
-                angle = (player * (360 / total_player)) + 7200;
+                angle = (player * (360 / total_player)) + 3600;
 //                angle=rand.nextInt(7200)+720;
                 RotateAnimation ranim = new RotateAnimation(changed_angle, angle, RotateAnimation.RELATIVE_TO_SELF, 0.5f
                         , RotateAnimation.RELATIVE_TO_SELF, 0.5f);
                 changed_angle = angle % 360;
                 ranim.setFillAfter(true);
-                ranim.setDuration(7200);
+                ranim.setDuration(3600);
                 ranim.setInterpolator(new AccelerateDecelerateInterpolator());
                 bottle.startAnimation(ranim);
                 ranim.setAnimationListener(new Animation.AnimationListener() {
@@ -84,6 +87,8 @@ public class roll_bottle extends AppCompatActivity {
                             default:
                                 break;
                         }
+                        Intent in=new Intent(roll_bottle.this,select_truth_dare.class);
+                        startActivity(in);
                     }
 
                     @Override
@@ -96,7 +101,9 @@ public class roll_bottle extends AppCompatActivity {
     }
 
     void rand_gen() {
-        if (flag == rand.nextInt(total_player * 100) / 100) {
+        int k;
+        k=rand.nextInt(total_player * 100) / 100;
+        if (flag ==k) {
             rand_gen();
         }
         player = rand.nextInt(total_player * 100) / 100;
