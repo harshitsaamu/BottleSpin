@@ -18,7 +18,7 @@ public class select_truth_dare extends Fragment {
         truth.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-show_truth();
+             show_truth();
             }
         });
         dare.setOnClickListener(new View.OnClickListener() {
@@ -31,7 +31,7 @@ show_truth();
     }
     public void  show_dare()
     {
-        Toast.makeText(getActivity(), "Dare", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getActivity(), "Daree", Toast.LENGTH_SHORT).show();
     }
     public void show_truth()
     {
