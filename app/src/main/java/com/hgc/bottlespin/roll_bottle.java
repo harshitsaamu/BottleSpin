@@ -1,13 +1,13 @@
 package com.hgc.bottlespin;
 
-import android.content.Intent;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.RotateAnimation;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -17,7 +17,6 @@ import java.util.Random;
 public class roll_bottle extends AppCompatActivity {
     ImageView bottle, table;
     Random rand;
-    Button button;
     int flag;
     int angle, changed_angle = 0;
     int player, total_player;
@@ -87,8 +86,7 @@ public class roll_bottle extends AppCompatActivity {
                             default:
                                 break;
                         }
-                        Intent in=new Intent(roll_bottle.this,select_truth_dare.class);
-                        startActivity(in);
+                        showfrag_dare_truth();
                     }
 
                     @Override
@@ -106,6 +104,19 @@ public class roll_bottle extends AppCompatActivity {
         if (flag ==k) {
             rand_gen();
         }
+        else
         player = rand.nextInt(total_player * 100) / 100;
+    }
+    void showfrag_dare_truth()
+    {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction().setCustomAnimations(
+                R.animator.card_flip_right_in,
+                R.animator.card_flip_right_out,
+                R.animator.card_flip_left_in,
+                R.animator.card_flip_left_out);
+        select_truth_dare fragg=new select_truth_dare();
+        fragmentTransaction.replace(R.id.activity_roll_bottle,fragg);
+        fragmentTransaction.commit();
     }
 }

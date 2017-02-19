@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:id="@+id/activity_roll_bottle"
     android:layout_height="match_parent"
     android:background="@mipmap/spinbottleactivity_bg1"
     tools:context="com.hgc.bottlespin.roll_bottle">
@@ -25,6 +26,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:padding="15dp"
-        android:src="@mipmap/bottle_1"/>
+        android:src="@mipmap/bottle_4"/>
     </RelativeLayout>
 </RelativeLayout>
