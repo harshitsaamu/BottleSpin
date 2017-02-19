@@ -1,6 +1,5 @@
 package com.hgc.bottlespin;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -87,8 +86,8 @@ public class roll_bottle extends AppCompatActivity {
                             default:
                                 break;
                         }
-                        Intent in=new Intent(roll_bottle.this,select_truth_dare.class);
-                        startActivity(in);
+                        //Intent in=new Intent(roll_bottle.this,select_truth_dare.class);
+                        //startActivity(in);
                     }
 
                     @Override

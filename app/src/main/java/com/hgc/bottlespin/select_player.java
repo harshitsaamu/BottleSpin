@@ -59,7 +59,7 @@ public class select_player extends AppCompatActivity {
                         vehicle.setImageResource(R.drawable.auto);
                         break;
                     case 5:
-                        vehicle.setImageResource(R.drawable.van);
+                        vehicle.setImageResource(R.drawable.car);
                         break;
                     case 6:
                         vehicle.setImageResource(R.drawable.van);

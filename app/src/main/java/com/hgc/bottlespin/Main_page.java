@@ -15,6 +15,7 @@ public class Main_page extends AppCompatActivity {
 
         ImageView adult=(ImageView) findViewById(R.id.adultButton);
         ImageView fun=(ImageView) findViewById(R.id.funButton);
+        ImageView settings=(ImageView) findViewById(R.id.settings);
 
         adult.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,6 +30,14 @@ public class Main_page extends AppCompatActivity {
             public void onClick(View view) {
                 Intent funmain = new Intent(Main_page.this, select_player.class);
                 startActivity(funmain);
+            }
+        });
+
+        settings.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent settingsintent = new Intent(Main_page.this, settings.class);
+                startActivity(settingsintent);
             }
         });
     }
