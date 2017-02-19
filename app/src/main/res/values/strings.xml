@@ -4,4 +4,7 @@
     <string name="adult">ADULT</string>
     <string name="roboto_light">sans-serif-light</string>
     <string name="number_picker_formatter">%02d</string>
+    <integer name="card_flip_time_full">700</integer>
+    <integer name="card_flip_time_half">150</integer>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
